@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -25,7 +24,7 @@ public class baseClass {
 	protected WebDriver driver;
     protected ExtentReports extent;
     protected ExtentTest test;
-    private static ThreadLocal<ExtentTest> testThreadLocal = new ThreadLocal<>();
+    protected static ThreadLocal<ExtentTest> testThreadLocal = new ThreadLocal<>();
 	 @BeforeSuite
 	    public void reportSetup() {
 		 ExtentSparkReporter htmlReporter = new ExtentSparkReporter("test-output/ExtentReport.html");
