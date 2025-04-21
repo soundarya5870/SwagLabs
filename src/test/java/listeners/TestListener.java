@@ -16,13 +16,13 @@ public class TestListener extends baseClass implements ITestListener {
         String testName = result.getName();
 
         // Capture screenshot
-        String screenshotPath = ScreenshotUtil.captureScreenshot(driver, testName);
+        String screenshotPath = ScreenshotUtil.captureScreenshot(baseClass.getDriver(), testName);
 
         // Log in Extent Report
-        testThreadLocal.get().log(Status.FAIL, "Test Failed: " + result.getThrowable());
+        test.get().log(Status.FAIL, "Test Failed: " + result.getThrowable());
 
         try {
-            testThreadLocal.get().fail("Screenshot:",
+        	test.get().fail("Screenshot:",
                 MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
         } catch (Exception e) {
             e.printStackTrace();

@@ -2,28 +2,38 @@ package tests;
 
 import base.baseClass;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
 
 public class InventoryTest extends baseClass {
 
+	@BeforeClass
+	public void setup() {
+	    System.out.println("Running setup for InventoryTest");
+	}
     @Test
     public void testAddItemToCart() {
-        test = extent.createTest("Add Item to Cart Test");
-        LoginPage login = new LoginPage(driver);
-        login.enterUsername("standard_user");
-        login.enterPassword("secret_sauce");
-        login.clickLogin();
-        test.pass("Login successful");
+       // test = extent.createTest("Add Item to Cart Test");
+        LoginPage loginpage=new LoginPage(baseClass.getDriver());
+ 		loginpage.enterUsername("standard_user");
+ 		loginpage.enterPassword("secret_sauce");
+ 		loginpage.clickLogin();
+ 		test.get().pass("Login successful");
 
-        InventoryPage inventory = new InventoryPage(driver);
+        InventoryPage inventory = new InventoryPage(baseClass.getDriver());
         inventory.addItemToCart();
-        test.pass("Item added to cart");
+        test.get().pass("Item added to cart");
         inventory.goToCart();
-        test.pass("Navigated to cart page");
+        test.get().pass("Navigated to cart page");
 
-        String currentUrl = driver.getCurrentUrl();
+        String currentUrl = baseClass.getDriver().getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("cart"), "Cart page URL is incorrect");
+    }
+    public void teardown()
+    {
+   	 System.out.println("This is InventoryTest exit");
     }
 }
