@@ -3,7 +3,6 @@ package tests;
 import base.baseClass;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.CheckoutPage;

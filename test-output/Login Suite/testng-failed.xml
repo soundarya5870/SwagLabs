@@ -42,6 +42,7 @@
           <include name="testAddItemToCart"/>
           <include name="reportTearDown"/>
           <include name="setup"/>
+          <include name="setup"/>
           <include name="reportSetup"/>
         </methods>
       </class> <!-- tests.InventoryTest -->

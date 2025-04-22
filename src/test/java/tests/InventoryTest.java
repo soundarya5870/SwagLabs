@@ -30,6 +30,7 @@ public class InventoryTest extends baseClass {
         test.get().pass("Navigated to cart page");
 
         String currentUrl = baseClass.getDriver().getCurrentUrl();
+        System.out.println("Current URL: " + currentUrl);
         Assert.assertTrue(currentUrl.contains("cart"), "Cart page URL is incorrect");
     }
     public void teardown()

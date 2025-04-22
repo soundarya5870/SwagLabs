@@ -1,18 +1,20 @@
 package base;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -42,6 +44,12 @@ public class baseClass {
 		// TODO Auto-generated method stub
 		public void setup(Method method)
 		{
+		   ChromeOptions options = new ChromeOptions();
+		   options.addArguments("--disable-save-password-bubble");
+		   options.setExperimentalOption("prefs", Map.of(
+		       "credentials_enable_service", false,
+		       "profile.password_manager_enabled", false
+		   ));
 		WebDriverManager.chromedriver().setup();
 		driver.set(new ChromeDriver());
 		getDriver().get("https://www.saucedemo.com/");
