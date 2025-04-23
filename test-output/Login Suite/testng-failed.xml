@@ -16,26 +16,6 @@
           <include name="reportSetup"/>
         </methods>
       </class> <!-- tests.CartTest -->
-      <class name="tests.ConfirmationTest">
-        <methods>
-          <include name="teardown"/>
-          <include name="testOrderConfirmation"/>
-          <include name="reportTearDown"/>
-          <include name="setup"/>
-          <include name="reportSetup"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- tests.ConfirmationTest -->
-      <class name="tests.CheckoutTest">
-        <methods>
-          <include name="teardown"/>
-          <include name="testCheckoutProcess"/>
-          <include name="reportTearDown"/>
-          <include name="setup"/>
-          <include name="reportSetup"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- tests.CheckoutTest -->
       <class name="tests.InventoryTest">
         <methods>
           <include name="teardown"/>
