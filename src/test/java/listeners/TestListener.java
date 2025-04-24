@@ -19,13 +19,15 @@ public class TestListener extends baseClass implements ITestListener {
         String screenshotPath = ScreenshotUtil.captureScreenshot(baseClass.getDriver(), testName);
 
         // Log in Extent Report
-        test.get().log(Status.FAIL, "Test Failed: " + result.getThrowable());
-
-        try {
-        	test.get().fail("Screenshot:",
-                MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (test.get() != null) {
+            test.get().log(Status.FAIL, "Test Failed: " + result.getThrowable());
+            try {
+                test.get().fail("Screenshot:", MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("ExtentTest object is null in listener for: " + testName);
         }
     }
 }

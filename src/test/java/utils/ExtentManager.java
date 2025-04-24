@@ -15,5 +15,12 @@ public class ExtentManager {
         }
         return extent;
     }
+	public static void setExtent(ExtentReports extent) {
+		ExtentManager.extent = extent;
+	}
+	/*public static void flush() {
+		if (extent != null) {
+			extent.flush();
+		}
+	}*/
 }
-

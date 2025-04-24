@@ -6,16 +6,6 @@
   </listeners>
   <test thread-count="5" parallel="tests" name="Login Tests(failed)">
     <classes>
-      <class name="tests.CartTest">
-        <methods>
-          <include name="teardown"/>
-          <include name="testProceedToCheckout"/>
-          <include name="setup"/>
-          <include name="setup"/>
-          <include name="reportTearDown"/>
-          <include name="reportSetup"/>
-        </methods>
-      </class> <!-- tests.CartTest -->
       <class name="tests.InventoryTest">
         <methods>
           <include name="teardown"/>

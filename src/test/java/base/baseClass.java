@@ -19,6 +19,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.ExtentManager;
+import utils.ScreenshotUtil;
 
 public class baseClass {
 
@@ -28,11 +30,8 @@ public class baseClass {
 
     @BeforeSuite
     public void reportSetup() {
-        if (extent == null) {
-            ExtentSparkReporter htmlReporter = new ExtentSparkReporter("test-output/ExtentReport.html");
-            extent = new ExtentReports();
-            extent.attachReporter(htmlReporter);
-        }
+    	ScreenshotUtil.cleanScreenshotFolder();
+        extent = ExtentManager.getInstance();
     }
 
     @BeforeMethod
@@ -60,12 +59,9 @@ public class baseClass {
 
         driver.set(localDriver);
 
-        if (extent != null) {
-            ExtentTest extentTest = extent.createTest(method.getName());
-            test.set(extentTest);
-        } else {
-            throw new IllegalStateException("ExtentReports not initialized");
-        }
+        ExtentReports ext = ExtentManager.getInstance();
+        ExtentTest extentTest = ext.createTest(method.getName());
+        test.set(extentTest);
     }
 
     @AfterMethod
@@ -84,9 +80,14 @@ public class baseClass {
         test.remove();
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void reportTearDown() {
-        extent.flush();
+    	//if (extent != null) {
+        //    System.out.println("Flushing extent report...");
+       //     extent.flush();
+       // } else {
+        //    System.out.println("Extent report was not initialized.");
+        //}
     }
 
     public static WebDriver getDriver() {

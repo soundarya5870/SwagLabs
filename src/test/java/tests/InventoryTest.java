@@ -4,6 +4,7 @@ import base.baseClass;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
@@ -16,7 +17,7 @@ public class InventoryTest extends baseClass {
 	}
     @Test
     public void testAddItemToCart() {
-       // test = extent.createTest("Add Item to Cart Test");
+        //test = extent.createTest("Add Item to Cart Test");
         LoginPage loginpage=new LoginPage(baseClass.getDriver());
  		loginpage.enterUsername("standard_user");
  		loginpage.enterPassword("secret_sauce");

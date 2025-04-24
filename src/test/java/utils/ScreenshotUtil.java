@@ -22,5 +22,17 @@ public class ScreenshotUtil {
         }
         return path;
     }
+	public static void cleanScreenshotFolder() {
+        File screenshotDir = new File("test-output/screenshots");
+        if (screenshotDir.exists()) {
+            for (File file : screenshotDir.listFiles()) {
+                if (file.isFile() && file.getName().endsWith(".png")) {
+                    file.delete();
+                }
+            }
+        } else {
+            screenshotDir.mkdirs();
+        }
 
+	}
 }
