@@ -6,6 +6,26 @@
   </listeners>
   <test thread-count="5" parallel="tests" name="Login Tests(failed)">
     <classes>
+      <class name="tests.CheckoutTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="testCheckoutProcess"/>
+          <include name="setup"/>
+          <include name="reportTearDown"/>
+          <include name="reportSetup"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.CheckoutTest -->
+      <class name="tests.ConfirmationTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="testOrderConfirmation"/>
+          <include name="reportTearDown"/>
+          <include name="setup"/>
+          <include name="reportSetup"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- tests.ConfirmationTest -->
       <class name="tests.InventoryTest">
         <methods>
           <include name="teardown"/>
@@ -16,6 +36,16 @@
           <include name="reportSetup"/>
         </methods>
       </class> <!-- tests.InventoryTest -->
+      <class name="tests.CartTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="testProceedToCheckout"/>
+          <include name="setup"/>
+          <include name="reportTearDown"/>
+          <include name="setup"/>
+          <include name="reportSetup"/>
+        </methods>
+      </class> <!-- tests.CartTest -->
     </classes>
   </test> <!-- Login Tests(failed) -->
 </suite> <!-- Failed suite [Login Suite] -->
