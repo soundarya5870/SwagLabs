@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import pages.InventoryPage;
 import pages.LoginPage;
 
@@ -23,7 +24,7 @@ public class InventoryTest extends baseClass {
  		loginpage.clickLogin();
  		test.get().pass("Login successful");
 
-        InventoryPage inventory = new InventoryPage(baseClass.getDriver());
+ 		InventoryPage inventory = new InventoryPage(baseClass.getDriver());
         inventory.addItemToCart();
         test.get().pass("Item added to cart");
         inventory.goToCart();
